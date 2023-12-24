@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'HughIsLifePersonalUseItalic';
+            src: url('/font/StylishCalligraphyDemo-XPZZ.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            background: url("festive-christmas-arrangement-with-copy-space.jpg") center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            /* Adjust the last value for opacity */
+        }
+
+        .title {
+            font-size: 48px;
+        }
+
+        .message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .merry-christmas,
+        .merry-christmas_p {
+            position: absolute;
+            font-family: 'HughIsLifePersonalUseItalic', cursive;
+            text-align: center;
+        }
+
+        .merry-christmas {
+            font-size: 80px;
+            bottom: 350px;
+            right: 300px;
+            /* Adjust the value as needed */
+        }
+
+        .merry-christmas_p {
+            font-size: 30px;
+            bottom: 270px;
+            right: 200px;
+            /* Adjust the value as needed */
+        }
+
+        .merry-christmas:hover,
+        .merry-christmas_p:hover {
+            transform: scale(1.1);
+            color: gold;
+            transition: transform 0.5s, color 0.5s;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .snowflake {
+            position: absolute;
+            content: "❄";
+            /* Unicode snowflake character */
+            font-size: 20px;
+            color: #fff;
+            animation: snowfall linear infinite;
+        }
+
+        /* Add more .snowflake:nth-child(n) rules for additional snowflakes */
+
+        /* Additional styling for more realistic snowflakes */
+        .snowflake::before,
+        .snowflake::after {
+            content: "❄";
+            position: absolute;
+            color: #fff;
+        }
+
+        .snowflake::before {
+            left: -70px;
+            transform: rotate(45deg);
+        }
+
+        .snowflake::after {
+            left: 100px;
+            transform: rotate(-45deg);
+        }
+
+        .snowflake:nth-child(1) {
+            left: 50%;
+            top: 10%;
+            animation-duration: 10s;
+        }
+
+        .snowflake:nth-child(2) {
+            left: 20%;
+            top: 30%;
+            animation-duration: 15s;
+        }
+
+        .snowflake:nth-child(3) {
+            left: 60%;
+            top: 15%;
+            animation-duration: 12s;
+        }
+
+        .snowflake:nth-child(4) {
+            left: 60%;
+            top: 25%;
+            animation-duration: 18s;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .popup-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            border: none;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+            z-index: 1;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #695c5c;
+            box-shadow: 0 0 10px rgba(31, 22, 22, 0.5);
+            z-index: 999;
+            border-radius: 20px;
+            /* Adjust the value for the desired curvature */
+            overflow: hidden; /* Add this line to hide content overflowing from curved edges */
+        }
+
+        .popup-content {
+            /* Add this class to style the content inside the popup */
+            font-size: 18px;
+            color: #333;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="snowflake">&#10052;</div>
+        <div class="snowflake">&#10052;</div>
+        <h1 class="merry-christmas">Merry Christmas!</h1>
+        <p class="merry-christmas_p">May this festive season bring you joy and happiness.</p>
+
+        <button class="popup-button" onclick="showPopup()">Click for a Surprise</button>
+
+        <div id="popup" class="popup">
+            <span class="close-button" onclick="hidePopup()">×</span>
+        
+            <p>
+                May this Christmas season bring you all the joy and happiness you deserve. I’m so grateful to have you in my life, and I can’t wait to spend many more Christmases with you. You make every day feel like a holiday, and I’m so lucky to have you as my girlfriend.
+            </p>
+            <br>
+            <p>
+                I remember the first time we met, and how I felt like I had known you forever. You have a way of making me feel so comfortable and happy, and I’m so grateful for that. I love the way you laugh, the way you smile, and the way you light up a room. You’re the most beautiful person I know, inside and out.
+            </p>
+            <br>
+            <p>
+                This Christmas, I want to give you the world. I want to wrap up all my love for you and put it under the tree. I want to hold you close and never let go. I want to make every moment count, and create memories that will last a lifetime.
+            </p>
+            <br>
+            <p>
+                I hope this Christmas is everything you’ve ever wanted and more. I hope it’s filled with love, laughter, and all the things that make you happy. I hope you know how much you mean to me, and how much I love you. Merry Christmas, my love! 🎄❤️
+            </p>
+        </div>
+        
+        
+        
+
+    <script>
+        function showPopup() {
+            $('.overlay').css('visibility', 'visible').fadeTo(500, 1);
+            $('#popup').fadeIn();
+        }
+
+        function hidePopup() {
+            $('.overlay').css('visibility', 'hidden').fadeTo(500, 0);
+            $('#popup').fadeOut();
+        }
+    </script>
+</body>
+
+</html>
